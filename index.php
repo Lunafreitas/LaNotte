@@ -23,6 +23,7 @@
     <li><a href="#cardapio">Cardápio</a></li>
     <li><a href="#avaliacoes">Avaliações</a></li>
     <li><a href="login.php" class="btn-login">Entrar</a></li>
+    <li><a href="cadastro.php" class="btn-cadastro">Cadastrar</a></li>
   </ul>
 </nav>
 

@@ -103,6 +103,18 @@ nav.red-bg .nav-links a.btn-login,
 nav.green-bg .nav-links a.btn-login,
 nav.blue-bg .nav-links a.btn-login{background:var(--amarelo);color:var(--preto);border-color:var(--amarelo);}
 
+.btn-cadastro{
+  padding:8px 18px;
+  background:transparent;
+  color:var(--preto);
+  border:2px solid var(--preto);
+  transition: 0.5s;
+}
+.btn-cadastro:hover{
+  background:var(--preto);
+  color:var(--creme);
+}
+
 /* ─── TICKER ─── */
 .ticker{
   position:relative;
