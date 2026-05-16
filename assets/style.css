@@ -115,8 +115,8 @@ nav.blue-bg .nav-links a.btn-login{background:var(--amarelo);color:var(--preto);
   color:var(--creme);
 }
 
-/* ─── TICKER ─── */
-.ticker{
+/* ─── carrossel ─── */
+.carrossel{
   position:relative;
   background:var(--preto);
   color:var(--amarelo);
@@ -127,21 +127,21 @@ nav.blue-bg .nav-links a.btn-login{background:var(--amarelo);color:var(--preto);
   overflow:hidden;
   white-space:nowrap;
 }
-.ticker-inner{
+.carrossel-diferenciais{
   display:inline-flex;gap:0;
-  animation:ticker 80s linear infinite;
+  animation:carrossel 80s linear infinite;
 }
 
-.ticker-inner span{
+.carrossel-diferenciais span{
     padding:0 30px;
 }
 
-.ticker-inner span::after{
+.carrossel-diferenciais span::after{
     content:'✦';
     margin-left:40px;
 }
 
-@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes carrossel{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ─── HERO ─── */
 .hero{
@@ -573,3 +573,6 @@ footer{
   .historia-text{padding:40px 30px;}
   .dif-header{padding:0 30px 40px;}
 }
+
+
+

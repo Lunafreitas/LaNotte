@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Notte - Comida Italiana</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- navbar -->
 <nav id="navbar">
   <div class="nav-logo">La<span>Notte</span>.</div>
   <ul class="nav-links">
@@ -22,13 +22,13 @@
     <li><a href="#diferenciais">Diferenciais</a></li>
     <li><a href="#cardapio">Cardápio</a></li>
     <li><a href="#avaliacoes">Avaliações</a></li>
-    <li><a href="login.php" class="btn-login">Entrar</a></li>
-    <li><a href="cadastro.php" class="btn-cadastro">Cadastrar</a></li>
+    <li><a href="login/login.php" class="btn-login">Entrar</a></li>
+    <li><a href="login/cadastro.php" class="btn-cadastro">Cadastrar</a></li>
   </ul>
 </nav>
 
 
-<!-- HERO -->
+<!-- hero -->
 <section class="hero" id="home" data-nav="cream">
     <div class="hero-left">
     <div class="hero-tag">Tradição Italiana desde 1987</div>
@@ -52,9 +52,9 @@
 </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner" id="ticker-inner">
+<!-- carrossel -->
+<div class="carrossel">
+  <div class="carrossel-diferenciais" id="carrossel-diferenciais">
     <span>Tradição Italiana desde 1987</span>
     <span>Massas Artesanais</span>
     <span>Ingredientes Importados</span>
@@ -74,7 +74,7 @@
   </div>
 </div>
 
-<!-- HISTÓRIA -->
+<!-- historia -->
 <section class="historia" id="historia" data-nav="dark">
   <div class="historia-img">
     <img src="images/restaurantelanotte.jfif" alt="Restaurante La Notte">
@@ -95,7 +95,7 @@
   </div>
 </section>
 
-<!-- DIFERENCIAIS -->
+<!-- diferenciais -->
 <section class="diferenciais" id="diferenciais" data-nav="green">
   <div class="dif-header">
     <span class="section-tag">Por que nos escolher</span>
@@ -104,35 +104,84 @@
   </div>
   <div class="carousel-wrap">
     <div class="carousel-track" id="carouselTrack">
-      <div class="card-dif" data-num="01"><i class="fa-solid fa-plane card-icon"></i><h3>Ingredientes Importados</h3><p>Tomate San Marzano, Parmigiano-Reggiano, azeite siciliano e muito mais, direto da Itália.</p></div>
-      <div class="card-dif" data-num="02"><i class="fa-solid fa-utensils card-icon"></i><h3>Massas Artesanais</h3><p>Preparadas diariamente à mão, seguindo as receitas tradicionais da nonna Rosaria.</p></div>
-      <div class="card-dif" data-num="03"><i class="fa-solid fa-star card-icon"></i><h3>Atendimento Premium</h3><p>Nossa equipe garante uma experiência completa, memorável e personalizada.</p></div>
-      <div class="card-dif" data-num="04"><i class="fa-solid fa-rocket card-icon"></i><h3>Delivery Rápido</h3><p>Pedido em até 35 minutos na sua porta, com embalagem térmica para manter a perfeição.</p></div>
-      <div class="card-dif" data-num="05"><i class="fa-solid fa-credit-card card-icon"></i><h3>Cashback Exclusivo</h3><p>5% de cashback em todos os pedidos, acumulando créditos para suas próximas refeições.</p></div>
-      <div class="card-dif" data-num="06"><i class="fa-solid fa-leaf card-icon"></i><h3>Ambiente Agradável</h3><p>Espaço acolhedor e elegante, ideal para momentos especiais com família e amigos.</p></div>
-      <div class="card-dif" data-num="07"><i class="fa-solid fa-gift card-icon"></i><h3>Programa Fidelidade</h3><p>Acumule pontos, desbloqueie prêmios e ganhe brindes nos seus aniversários.</p></div>
-      <div class="card-dif" data-num="08"><i class="fa-solid fa-wine-bottle card-icon"></i><h3>Adega Premiada</h3><p>Mais de 60 rótulos italianos selecionados por nosso sommelier para todos os gostos.</p></div>
-      <!-- duplicadas para loop infinito -->
-      <div class="card-dif" data-num="01"><i class="fa-solid fa-plane card-icon"></i><h3>Ingredientes Importados</h3><p>Tomate San Marzano, Parmigiano-Reggiano, azeite siciliano e muito mais, direto da Itália.</p></div>
-      <div class="card-dif" data-num="02"><i class="fa-solid fa-utensils card-icon"></i><h3>Massas Artesanais</h3><p>Preparadas diariamente à mão, seguindo as receitas tradicionais da nonna Rosaria.</p></div>
-      <div class="card-dif" data-num="03"><i class="fa-solid fa-star card-icon"></i><h3>Atendimento Premium</h3><p>Nossa equipe garante uma experiência completa, memorável e personalizada.</p></div>
-      <div class="card-dif" data-num="04"><i class="fa-solid fa-rocket card-icon"></i><h3>Delivery Rápido</h3><p>Pedido em até 35 minutos na sua porta, com embalagem térmica para manter a perfeição.</p></div>
-      <div class="card-dif" data-num="05"><i class="fa-solid fa-credit-card card-icon"></i><h3>Cashback Exclusivo</h3><p>5% de cashback em todos os pedidos, acumulando créditos para suas próximas refeições.</p></div>
-      <div class="card-dif" data-num="06"><i class="fa-solid fa-leaf card-icon"></i><h3>Ambiente Agradável</h3><p>Espaço acolhedor e elegante, ideal para momentos especiais com família e amigos.</p></div>
-      <div class="card-dif" data-num="07"><i class="fa-solid fa-gift card-icon"></i><h3>Programa Fidelidade</h3><p>Acumule pontos, desbloqueie prêmios e ganhe brindes nos seus aniversários.</p></div>
-      <div class="card-dif" data-num="08"><i class="fa-solid fa-wine-bottle card-icon"></i><h3>Adega Premiada</h3><p>Mais de 60 rótulos italianos selecionados por nosso sommelier para todos os gostos.</p></div>
+      <div class="card-dif" data-num="01">
+        <i class="fa-solid fa-plane card-icon"></i><h3>Ingredientes Importados</h3><p>Tomate San Marzano, Parmigiano-Reggiano, azeite siciliano e muito mais, direto da Itália.</p>
+      </div>
+
+      <div class="card-dif" data-num="02">
+        <i class="fa-solid fa-utensils card-icon"></i><h3>Massas Artesanais</h3><p>Preparadas diariamente à mão, seguindo as receitas tradicionais da nonna Rosaria.</p>
+      </div>
+
+      <div class="card-dif" data-num="03">
+        <i class="fa-solid fa-star card-icon"></i><h3>Atendimento Premium</h3><p>Nossa equipe garante uma experiência completa, memorável e personalizada.</p>
+      </div>
+
+      <div class="card-dif" data-num="04">
+        <i class="fa-solid fa-rocket card-icon"></i><h3>Delivery Rápido</h3><p>Pedido em até 35 minutos na sua porta, com embalagem térmica para manter a perfeição.</p>
+      </div>
+
+      <div class="card-dif" data-num="05">
+        <i class="fa-solid fa-credit-card card-icon"></i><h3>Cashback Exclusivo</h3><p>5% de cashback em todos os pedidos, acumulando créditos para suas próximas refeições.</p>
+      </div>
+
+      <div class="card-dif" data-num="06">
+        <i class="fa-solid fa-leaf card-icon"></i><h3>Ambiente Agradável</h3><p>Espaço acolhedor e elegante, ideal para momentos especiais com família e amigos.</p>
+      </div>
+
+      <div class="card-dif" data-num="07">
+        <i class="fa-solid fa-gift card-icon"></i><h3>Programa Fidelidade</h3><p>Acumule pills, desbloqueie prêmios e ganhe brindes nos seus aniversários.</p>
+      </div>
+
+      <div class="card-dif" data-num="08">
+        <i class="fa-solid fa-wine-bottle card-icon"></i><h3>Adega Premiada</h3><p>Mais de 60 rótulos italianos selecionados por nosso sommelier para todos os gostos.</p>
+      </div>
+
+
+      <!-- duplicadas pro carrossel do grau -->
+      <div class="card-dif" data-num="01">
+        <i class="fa-solid fa-plane card-icon"></i><h3>Ingredientes Importados</h3><p>Tomate San Marzano, Parmigiano-Reggiano, azeite siciliano e muito mais, direto da Itália.</p>
+      </div>
+
+      <div class="card-dif" data-num="02">
+        <i class="fa-solid fa-utensils card-icon"></i><h3>Massas Artesanais</h3><p>Preparadas diariamente à mão, seguindo as receitas tradicionais da nonna Rosaria.</p>
+      </div>
+
+      <div class="card-dif" data-num="03">
+        <i class="fa-solid fa-star card-icon"></i><h3>Atendimento Premium</h3><p>Nossa equipe garante uma experiência completa, memorável e personalizada.</p>
+      </div>
+
+      <div class="card-dif" data-num="04">
+        <i class="fa-solid fa-rocket card-icon"></i><h3>Delivery Rápido</h3><p>Pedido em até 35 minutos na sua porta, com embalagem térmica para manter a perfeição.</p>
+      </div>
+
+      <div class="card-dif" data-num="05">
+        <i class="fa-solid fa-credit-card card-icon"></i><h3>Cashback Exclusivo</h3><p>5% de cashback em todos os pedidos, acumulando créditos para suas próximas refeições.</p>
+      </div>
+
+      <div class="card-dif" data-num="06">
+        <i class="fa-solid fa-leaf card-icon"></i><h3>Ambiente Agradável</h3><p>Espaço acolhedor e elegante, ideal para momentos especiais com família e amigos.</p>
+      </div>
+
+      <div class="card-dif" data-num="07">
+        <i class="fa-solid fa-gift card-icon"></i><h3>Programa Fidelidade</h3><p>Acumule pills, desbloqueie prêmios e ganhe brindes nos seus aniversários.</p>
+      </div>
+
+      <div class="card-dif" data-num="08">
+        <i class="fa-solid fa-wine-bottle card-icon"></i><h3>Adega Premiada</h3><p>Mais de 60 rótulos italianos selecionados por nosso sommelier para todos os gostos.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- CARDÁPIO -->
+<!-- cardapio -->
 <section class="cardapio" id="cardapio" data-nav="cream">
   <div class="cardapio-header">
     <div>
       <span class="section-tag">Cardápio</span>
       <h2 class="section-h2">Destaques do<br>Cardápio</h2>
     </div>
-    <a href="login.php" class="cardapio-link">Cardápio Completo →</a>
+    <a href="login/login.php" class="cardapio-link">Cardápio Completo →</a>
   </div>
   <div class="menu-grid">
     <div class="menu-card">
@@ -186,7 +235,7 @@
   </div>
 </section>
 
-<!-- AVALIAÇÕES -->
+<!-- avaliações -->
 <section class="avaliacoes" id="avaliacoes" data-nav="blue">
   <div class="avaliacoes-header">
     <span class="section-tag">Avaliações</span>
@@ -233,19 +282,19 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- rodape -->
 <footer>
   <div class="footer-logo">La<span>Notte</span>.</div>
   <p class="footer-copy">© 2026 LaNotte Italiana. Todos os direitos reservados.</p>
   <div class="footer-links">
     <a href="#historia">História</a>
     <a href="#cardapio">Cardápio</a>
-    <a href="login.php">Entrar</a>
+    <a href="login/login.php">Entrar</a>
   </div>
 </footer>
 
 <script>
-// ── NAVBAR COLOR CHANGE ON SCROLL ──
+// fazer a navbar mudar de cor
 const nav = document.getElementById('navbar');
 const sections = document.querySelectorAll('section[data-nav]');
 

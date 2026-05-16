@@ -1,0 +1,19 @@
+<?php
+require_once '../../config/conn.php';
+require_once '../../login/autenticacao.php';
+
+verificarAdmin();
+
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $stmt = $pdo->prepare("DELETE FROM categorias WHERE id = ?");
+    $stmt->execute([$id]);
+} else {
+    echo 'ID não encontrado';
+}
+
+header("Location: ../categorias.php");
+exit();
+
+?>
+?>
