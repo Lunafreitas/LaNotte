@@ -45,28 +45,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <a href="../index.php">← Voltar para Home</a>
+    <a href="../index.php">← Voltar</a>
     <h1>Login</h1>
-    <?php if ($erro): ?>
+    <?php if (!empty($erro)): ?>
         <p><?= $erro ?></p>
     <?php endif; ?>
 
-    <form method="POST">
-        <div>
-            <label>Email</label>
+    <form method="post">
+        <div class="campo">
+            <label>Email</label><br>
             <input type="email" name="email" required>
-        </div>
-        <br>
-        <div>
-            <label>Senha</label>
+        </div><br>
+        <div class="campo">
+            <label>Senha</label><br>
             <input type="password" name="senha" required>
-        </div>
-        <br>
+        </div><br>
         <button type="submit">Entrar</button>
-    </form>
-    <br>
+    </form><br>
     <p>Não tem uma conta?<a href="cadastro.php">Criar conta</a></p>
-
+    
 </body>
 
 </html>

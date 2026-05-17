@@ -308,7 +308,6 @@ function updateNav(){
   if(current === 'dark') nav.classList.add('dark');
   else if(current === 'green') nav.classList.add('green-bg');
   else if(current === 'blue') nav.classList.add('blue-bg');
-  else if(current === 'red') nav.classList.add('red-bg');
 }
 window.addEventListener('scroll', updateNav);
 updateNav();
