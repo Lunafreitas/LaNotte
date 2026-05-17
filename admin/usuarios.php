@@ -23,10 +23,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <table border="1" cellpadding="10">
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Nome</th>
             <th>Email</th>
-            <th>Nível</th>
         </tr>
 
         <?php foreach ($users as $user): ?>
@@ -34,9 +33,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $user['id'] ?></td>
                 <td><?= $user['nome'] ?></td>
                 <td><?= $user['email'] ?></td>
-                <td>
-                    <?= $user['nivel'] == 1 ? 'Admin' : 'Usuário' ?>
-                </td>
             </tr>
 
         <?php endforeach; ?>

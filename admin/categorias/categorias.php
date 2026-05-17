@@ -1,10 +1,10 @@
 <?php
-require_once '../config/conn.php';
-require_once '../login/autenticacao.php';
+require_once '../../config/conn.php';
+require_once '../../login/autenticacao.php';
 
 verificarAdmin();
 
-$stmt = $pdo->query("SELECT id, nome FROM categorias");
+$stmt = $pdo->query("SELECT * FROM categorias");
 $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -21,16 +21,16 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../includes/nav_admin.php' ?>
+    <?php include '../../includes/nav_admin.php' ?>
     <h2>Gestão de Categorias</h2>
-    <a href="../admin/acoes/addA.php">Adicionar Categoria</a>
+    <a href="addA.php">Adicionar Categoria</a>
 
         <?php foreach ($categorias as $categoria): ?>
             <div>
                 <p><?= $categoria['nome'] ?></p>
                 <p>Ordem #<?= $categoria['id'] ?></p>
-                <a href="../admin/acoes/editarA.php">Editar</a>
-                <a href="../admin/acoes/deleteA.php?id="<?= $categoria['id'] ?> onclick="return confirm('Excluir? Esta ação não pode ser desfeita')">Excluir</i></a>
+                <a href="editarA.php?id=<?= $categoria['id'] ?>">Editar</a>
+                <a href="deleteA.php?id=<?= $categoria['id'] ?>" onclick="return confirm('Excluir? Esta ação não pode ser desfeita')">Excluir</i></a>
             </div>
         <?php endforeach; ?>
 

@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
     $stmt = $pdo->prepare('INSERT INTO categorias (nome) VALUES (:categoria)');
     $stmt->bindValue(':categoria', $categoria);
     $stmt->execute();
-    header('Location: ../categorias.php');
+    header('Location: categorias.php');
     exit();
 }
 ?>
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
     <form method="post">
         <label>Nome *</label>
         <input type="text" name="categoria" required>
-        <a href="../categorias.php">Cancelar</a>
+        <a href="categorias.php">Cancelar</a>
         <input type="submit" name="submit">
     </form>
     
