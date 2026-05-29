@@ -8,12 +8,12 @@ if(isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $stmt = $pdo->prepare("DELETE FROM produtos WHERE id = :id");
+    $stmt = $pdo->prepare("DELETE FROM pedidos WHERE id = :id");
 
     $stmt->bindValue(':id', $id);
     $stmt->execute();
 
-    header('Location: produtos.php');
+    header('Location: pedidos.php');
     exit();
 }
 ?>

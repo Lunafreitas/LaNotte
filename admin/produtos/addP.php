@@ -37,11 +37,18 @@ if(isset($_POST['submit'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Produto</title>
+    <title>Painel Admin - Adicionar Produto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-
-<h2>Adicionar Produto</h2>
+<body class="admin">
+<div class="page-header">
+    <div class="eyebrow">Novo item</div>
+    <h2>Adicionar Produto</h2>
+</div>
 
 <form method="post" enctype="multipart/form-data"> <!-- obrigatorio para formularios que recebem arquivos -->
     <label>Categoria</label><br>

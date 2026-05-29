@@ -5,15 +5,14 @@ require_once '../../login/autenticacao.php';
 verificarAdmin();
 
 if(isset($_GET['id'])) {
-
     $id = $_GET['id'];
 
-    $stmt = $pdo->prepare("DELETE FROM produtos WHERE id = :id");
+    $stmt = $pdo->prepare("DELETE FROM users WHERE id = :id");
 
     $stmt->bindValue(':id', $id);
     $stmt->execute();
 
-    header('Location: produtos.php');
+    header('Location: usuarios.php');
     exit();
 }
 ?>

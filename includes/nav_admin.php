@@ -15,8 +15,8 @@
 
     .sidebar {
         width: 240px;
-        min-height: 100vh;
-        background: var(--preto);
+        min-height: 100%;
+        background: #191d17;
         border-right: 3px solid var(--amarelo);
         display: flex;
         flex-direction: column;
@@ -152,7 +152,7 @@
             <i class="fa-solid fa-tags"></i> Categorias
         </a>
 
-        <a href="/LaNotte/admin/pedidos.php" class="sidebar-link">
+        <a href="/LaNotte/admin/pedidos/pedidos.php" class="sidebar-link">
             <i class="fa-solid fa-receipt"></i> Pedidos
         </a>
 
