@@ -110,19 +110,13 @@ if (isset($_POST['submit'])) {
         <select name="disponivel">
             <option
                 value="Disponível"
-                <?= ($produto['disponivel'] == 'Disponível')
-                    ? 'selected'
-                    : ''
+                <?= ($produto['disponivel'] == 'Disponível') ? 'selected': ''
                 ?>>
                 Disponível
             </option>
 
             <option value="Indisponível"
-                <?= ($produto['disponivel'] == 'Indisponível')
-                    ? 'selected'
-                    : ''
-                ?>>
-                Indisponível
+                <?= ($produto['disponivel'] == 'Indisponível') ? 'selected': ''?>>Indisponível
             </option>
         </select><br>
 

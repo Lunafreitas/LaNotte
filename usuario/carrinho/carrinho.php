@@ -234,7 +234,7 @@ $pedidoTexto = implode(', ', $nomesPedido);
 
                     <input type="hidden" name="total" value="<?= $total ?>">
 
-                    <input type="hidden" name="pedido" value="<?= htmlspecialchars($pedidoTexto) ?>">
+                    <input type="hidden" name="pedido" value="<?= $pedidoTexto ?>">
 
                     <input type="hidden" name="quantidade" value="<?= $total_itens ?>">
 

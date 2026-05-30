@@ -13,7 +13,7 @@ if(isset($_GET['id'])) {
     $stmt->execute();
 
     session_destroy();
-    header('Location: ../../index.php');
+    header('Location: ../../login/login.php');
     exit();
 }
 ?>

@@ -95,7 +95,7 @@ verificarUser();
         <div class="dash-card" data-n="08" style="cursor:default;">
             <i class="fa-solid fa-envelope dash-card-icon" style="color:var(--marrom);"></i>
             <div class="dash-card-titulo" style="font-size:18px;line-height:1.3;word-break:break-all;">
-                <?= htmlspecialchars($_SESSION['user_email']) ?>
+                <?= $_SESSION['user_email'] ?>
             </div>
             <p class="dash-card-desc">Conta ativa</p>
         </div>

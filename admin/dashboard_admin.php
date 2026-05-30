@@ -9,7 +9,6 @@ $total_prods   = (int)$pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn(
 $total_cats    = (int)$pdo->query("SELECT COUNT(*) FROM categorias")->fetchColumn();
 $total_pedidos = (int)$pdo->query("SELECT COUNT(*) FROM pedidos")->fetchColumn();
 
-// Últimos 5 usuários
 $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel = 0 ORDER BY id DESC LIMIT 5"
 )->fetchAll(PDO::FETCH_ASSOC);
 ?>

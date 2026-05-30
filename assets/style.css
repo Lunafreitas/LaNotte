@@ -883,62 +883,6 @@ footer {
 }
 
 
-/* ─── RESPONSIVIDADE ─── */
-@media(max-width:900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-right {
-    display: none;
-  }
-
-  .historia {
-    grid-template-columns: 1fr;
-  }
-
-  .historia-img {
-    height: 300px;
-  }
-
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-card {
-    border-right: 0;
-  }
-
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .review-card {
-    border-right: 0;
-    border-bottom: 2px solid rgba(245, 166, 35, .2);
-  }
-
-  nav {
-    padding: 0 20px;
-  }
-
-  .cardapio-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 40px 30px 0;
-  }
-
-  .historia-text {
-    padding: 40px 30px;
-  }
-
-  .dif-header {
-    padding: 0 30px 40px;
-  }
-}
-
-
 /* PAINEL ADMIN ///////////////////////////////////////////////////////////////////////// */
 body.admin {
   background-color: var(--preto);
@@ -1586,7 +1530,7 @@ body.admin .cat-acoes {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .btn-excluir-item:hover {
@@ -1757,16 +1701,6 @@ body.admin .cat-acoes {
   transition: color 0.3s;
 }
 
-/* Estado vazio */
-.avaliacao-vazia {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 24px;
-  color: rgba(0, 0, 0, .25);
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-
 /* ── Formulário — abaixo dos cards ── */
 .avaliacao-form-wrap {
   background: var(--preto);
@@ -1808,7 +1742,7 @@ body.admin .cat-acoes {
   font-size: 13px;
   outline: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -1832,7 +1766,7 @@ body.admin .cat-acoes {
   line-height: 1.7;
   resize: vertical;
   outline: none;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .avaliacao-form textarea:focus {
@@ -2066,7 +2000,7 @@ body.admin .cat-acoes {
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(0, 0, 0, .4);
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.3s,;
 }
 
 .perfil-stat-link:hover {
@@ -2178,7 +2112,7 @@ body.admin .cat-acoes {
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s;
   border-radius: 0;
 }
 
@@ -2245,63 +2179,6 @@ body.admin .cat-acoes {
   border-color: var(--preto);
 }
 
-body.admin .status-bar {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 22px;
-  background: var(--verde);
-  border: 2px solid rgba(248, 164, 27, .15);
-  margin-bottom: 28px;
-  position: relative;
-  overflow: hidden;
-}
-
-body.admin .status-bar::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--amarelo);
-}
-
-body.admin .status-dot {
-  width: 8px;
-  height: 8px;
-  background: #4caf7d;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(76, 175, 125, .2);
-  animation: pulso 2s infinite;
-}
-
-@keyframes pulso {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 3px rgba(76, 175, 125, .2);
-  }
-
-  50% {
-    box-shadow: 0 0 0 6px rgba(76, 175, 125, .05);
-  }
-}
-
-body.admin .status-txt {
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, .7);
-}
-
-body.admin .status-txt strong {
-  color: var(--amarelo);
-}
-
 /* Grid de 4 métricas */
 body.admin .stats-grid {
   display: grid;
@@ -2315,28 +2192,13 @@ body.admin .stat-card {
   border-right: 1px solid rgba(248, 164, 27, .12);
   position: relative;
   overflow: hidden;
-  transition: background .2s;
-}
-
-body.admin .stat-card:last-child {
-  border-right: 0;
+  transition: 0.3s;
 }
 
 body.admin .stat-card:hover {
   background: rgba(255, 255, 255, .025);
 }
 
-body.admin .stat-card::after {
-  content: attr(data-bg);
-  position: absolute;
-  bottom: -14px;
-  right: 6px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 70px;
-  color: rgba(255, 255, 255, .03);
-  line-height: 1;
-  pointer-events: none;
-}
 
 body.admin .stat-icon {
   font-size: 16px;
@@ -2374,14 +2236,12 @@ body.admin .stat-delta {
   gap: 4px;
 }
 
-/* Row: ações + últimos usuários */
 body.admin .dash-row {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 24px;
 }
 
-/* Ações rápidas */
 body.admin .acoes-rapidas {
   border: 2px solid rgba(248, 164, 27, .18);
   overflow: hidden;
@@ -2404,7 +2264,7 @@ body.admin .acao-item {
   padding: 15px 20px;
   border-bottom: 1px solid rgba(248, 164, 27, .07);
   text-decoration: none;
-  transition: background .15s;
+  transition: 0.3s;
 }
 
 body.admin .acao-item:last-child {
@@ -2452,7 +2312,7 @@ body.admin .acao-desc {
 body.admin .acao-seta {
   font-size: 11px;
   color: rgba(255, 255, 255, .18);
-  transition: color .2s, transform .2s;
+  transition: 0.3s;
 }
 
 body.admin .acao-item:hover .acao-seta {
@@ -2680,7 +2540,7 @@ body.admin .btn-form-cancelar:hover {
 
 /* Hero de boas-vindas */
 .dash-hero {
-  background: var(--azul);
+  background: var(--preto);
   border-bottom: 3px solid var(--amarelo);
   padding: 50px 60px;
   display: flex;
@@ -2832,36 +2692,6 @@ body.admin .btn-form-cancelar:hover {
   transform: translateX(4px);
 }
 
-@media (max-width: 900px) {
-  .dash-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .dash-card:nth-child(4n) {
-    border-right: 2px solid var(--preto);
-  }
-
-  .dash-card:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .dash-hero {
-    padding: 36px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 500px) {
-  .dash-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dash-card {
-    border-right: 0;
-  }
-}
-
 /* Avatar dentro do card de avaliação */
 .avaliacao-avatar {
   width: 52px;
@@ -2870,6 +2700,7 @@ body.admin .btn-form-cancelar:hover {
   border: 2px solid rgba(0, 0, 0, .12);
   display: block;
   flex-shrink: 0;
+  transition: 0.3s;
 }
 
 .avaliacao-card:hover .avaliacao-avatar {
@@ -2948,7 +2779,7 @@ body.admin .btn-form-cancelar:hover {
   color: var(--vermelho);
   background: transparent;
   text-decoration: none;
-  transition: background .2s;
+  transition: 0.3s;
   display: inline-flex;
   align-items: center;
   gap: 5px;

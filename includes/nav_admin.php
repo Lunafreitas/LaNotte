@@ -160,8 +160,8 @@
             <i class="fa-solid fa-users"></i> Usuários
         </a>
 
-        <a href="/LaNotte/admin/relatorios.php" class="sidebar-link">
-            <i class="fa-solid fa-chart-bar"></i> Relatórios
+        <a href="/LaNotte/admin/avaliacoes/avaliacoes_excluir.php" class="sidebar-link">
+            <i class="fa-solid fa-chart-bar"></i> Avaliações
         </a>
 
         <span class="sidebar-grupo">Conta</span>
