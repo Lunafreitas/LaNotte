@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -48,10 +48,10 @@ $img_user = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
         </div>
 
         <div class="perfil-topo-acao">
-            <a href="excluirU.php?id=<?= $user['id'] ?>" class="btn-editar-perfil" style="margin-right: 10px;" onclick="return confirm('Tem certeza que deseja excluir seu perfil? Esta ação não pode ser desfeita.')">
+            <a href="/LaNotte/public/usuario/perfil/excluirU.php?id=<?= $user['id'] ?>" class="btn-editar-perfil" style="margin-right: 10px;" onclick="return confirm('Tem certeza que deseja excluir seu perfil? Esta ação não pode ser desfeita.')">
                 <i class="fa-solid fa-trash"></i> Excluir Perfil
             </a>
-            <a href="editarU.php?id=<?= $user['id'] ?>" class="btn-editar-perfil">
+            <a href="/LaNotte/public/usuario/perfil/editarU.php?id=<?= $user['id'] ?>" class="btn-editar-perfil">
                 <i class="fa-solid fa-pen-to-square"></i> Editar Perfil
             </a>
         </div>
@@ -84,7 +84,7 @@ $img_user = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
                 <div class="perfil-stat-num"><?= $count_pedidos ?></div>
                 <div class="perfil-stat-lbl">Pedido(s) realizado(s)</div>
             </div>
-            <a href="pedidos.php" class="perfil-stat-link">
+            <a href="/LaNotte/public/usuario/historico/historico.php" class="perfil-stat-link">
                 Ver histórico <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>

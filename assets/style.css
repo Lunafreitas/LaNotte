@@ -2930,3 +2930,259 @@ dialog#modalEditar::backdrop {
   border-color: var(--vermelho);
   color: var(--vermelho);
 }
+
+/* ═══════════════════════════════════════════════
+   LOGIN & CADASTRO — minimalista
+   ═══════════════════════════════════════════════ */
+
+body.auth {
+  background: var(--creme);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Botão voltar fixo */
+.auth-back {
+  position: fixed;
+  top: 24px; left: 28px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .2s;
+  z-index: 10;
+}
+.auth-back:hover { color: var(--vermelho); }
+
+/* Caixa central */
+.auth-box {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Logo clicável */
+.auth-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--preto);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-bottom: 32px;
+}
+.auth-logo span { color: var(--vermelho); }
+
+/* Título e subtítulo */
+.auth-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 46px;
+  line-height: .92;
+  color: var(--preto);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.auth-sub {
+  font-size: 12px;
+  color: rgba(0,0,0,.4);
+  text-align: center;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* Erro */
+.auth-erro {
+  background: rgba(222,74,45,.07);
+  border: 2px solid var(--vermelho);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--vermelho);
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Campos */
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+
+.auth-campo { display: flex; flex-direction: column; gap: 7px; }
+.auth-campo label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.4);
+}
+.auth-campo input {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: 2px solid rgba(0,0,0,.18);
+  color: var(--preto);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.auth-campo input:focus { border-color: var(--preto); }
+.auth-campo input::placeholder { color: rgba(0,0,0,.2); }
+
+/* Botão submit */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--preto);
+  color: var(--creme);
+  border: 2px solid var(--preto);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  margin-top: 6px;
+}
+.auth-btn:hover { background: var(--vermelho); border-color: var(--vermelho); }
+
+/* Divisor "ou" */
+.auth-ou {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 16px;
+}
+.auth-ou::before,
+.auth-ou::after { content: ''; flex: 1; height: 1px; background: rgba(0,0,0,.12); }
+.auth-ou span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.28);
+}
+
+/* Link final */
+.auth-rodape { text-align: center; }
+.auth-rodape p {
+  font-size: 11px;
+  color: rgba(0,0,0,.38);
+  margin-bottom: 4px;
+}
+.auth-rodape a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--preto);
+  text-decoration: none;
+  border-bottom: 2px solid var(--vermelho);
+  padding-bottom: 1px;
+  transition: 0.3s;
+}
+.auth-rodape a:hover { color: var(--vermelho); }
+
+body.admin .form-page {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+}
+
+body.admin .form-conteudo {
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.admin .form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 520px;
+}
+
+body.admin .form-campo { display: flex; flex-direction: column; gap: 7px; }
+body.admin .form-campo label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  font-family: 'Roboto', sans-serif;
+}
+body.admin .form-campo input[type="text"],
+body.admin .form-campo input[type="number"],
+body.admin .form-campo input[type="file"],
+body.admin .form-campo textarea,
+body.admin .form-campo select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.05);
+  border: 2px solid rgba(255,255,255,.1);
+  color: var(--creme);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+body.admin .form-campo input:focus,
+body.admin .form-campo textarea:focus,
+body.admin .form-campo select:focus { border-color: var(--amarelo); }
+body.admin .form-campo input::placeholder,
+body.admin .form-campo textarea::placeholder { color: rgba(255,255,255,.18); }
+body.admin .form-campo select option { background: var(--preto); color: var(--creme); }
+body.admin .form-campo textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+body.admin .form-campo input[type="file"] { cursor: pointer; color: rgba(255,255,255,.35); }
+
+body.admin .form-acoes {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+body.admin .btn-form-salvar {
+  padding: 13px 28px;
+  background: var(--amarelo);
+  color: var(--preto);
+  border: 2px solid var(--amarelo);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: .3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+body.admin .btn-form-salvar:hover { background: var(--creme); border-color: var(--creme); }
+
+body.admin .btn-form-cancelar {
+  padding: 13px 22px;
+  background: transparent;
+  color: rgba(255,255,255,.3);
+  border: 2px solid rgba(255,255,255,.1);
+  font-family: 'Roboto', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: .3s;
+}
+body.admin .btn-form-cancelar:hover { border-color: var(--vermelho); color: var(--vermelho); }

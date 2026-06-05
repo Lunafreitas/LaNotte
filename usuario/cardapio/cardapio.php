@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -34,7 +34,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <span class="section-tag">Cada prato feito com amor</span>
         <h2 class="section-h2">Nosso Cardápio</h2>
       </div>
-      <a href="../carrinho/carrinho.php" class="carrinho-link">
+      <a href="/LaNotte/public/usuario/carrinho/carrinho.php" class="carrinho-link">
         <i class="fa-solid fa-cart-shopping"></i>
         Carrinho
       </a>
@@ -68,7 +68,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <!-- os botões -->
             <?php if ($disponivel): ?>
-              <a href="add_carrinho.php?id=<?= $produto['id'] ?>" class="btn-carrinho">
+              <a href="/LaNotte/public/usuario/cardapio/add_carrinho.php?id=<?= $produto['id'] ?>" class="btn-carrinho">
                 <i class="fa-solid fa-plus"></i>
                 Adicionar
               </a>

@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -43,7 +43,7 @@ $img_user = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
         <div class="carrinho-vazio">
             <i class="fa-solid fa-receipt"></i>
             <p class="carrinho-vazio-txt">Você ainda não fez nenhum pedido, ou ele foi cancelado.</p>
-            <a href="../cardapio/cardapio.php" class="btn-voltar-cardapio">
+            <a href="/LaNotte/public/usuario/cardapio/cardapio.php" class="btn-voltar-cardapio">
                 <i class="fa-solid fa-arrow-left"></i> Ver Cardápio
             </a>
         </div>

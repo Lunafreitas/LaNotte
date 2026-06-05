@@ -1,6 +1,6 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -17,7 +17,7 @@ $total = count($produtos);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Admin — Produtos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="/LaNotte/public/assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@ $total = count($produtos);
             <div class="eyebrow">Gestão</div>
             <h2>Produtos</h2>
         </div>
-        <a href="addP.php" class="add">
+        <a href="/LaNotte/public/admin/produtos/addP.php" class="add">
             <i class="fa-solid fa-plus"></i> Adicionar Produto
         </a>
     </div>
@@ -69,10 +69,10 @@ $total = count($produtos);
                             <td><?= $produto['disponivel'] ?></td>
                             <td>
                                 <div class="td-acoes">
-                                    <a href="editarP.php?id=<?= $produto['id'] ?>" class="btn-editar">
+                                    <a href="/LaNotte/public/admin/produtos/editarP.php?id=<?= $produto['id'] ?>" class="btn-editar">
                                         <i class="fa-solid fa-pen"></i> Editar
                                     </a>
-                                    <a href="deleteP.php?id=<?= $produto['id'] ?>"
+                                    <a href="/LaNotte/public/admin/produtos/deleteP.php?id=<?= $produto['id'] ?>"
                                        class="btn-deletar"
                                        onclick="return confirm('Deseja excluir este produto? Esta ação não pode ser desfeita.')">
                                         <i class="fa-solid fa-trash"></i> Excluir

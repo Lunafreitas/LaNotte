@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     $stmt->bindValue(':user_id', $user_id);
     $stmt->execute();
 
-    header('Location: carrinho.php');
+    header('Location: /LaNotte/public/usuario/carrinho/carrinho.php');
     exit();
 }
 ?>

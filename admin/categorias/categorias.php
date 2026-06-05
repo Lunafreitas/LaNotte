@@ -1,6 +1,6 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -18,7 +18,7 @@ $total = count($categorias);
     <title>Painel Admin - Categorias</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="/LaNotte/public/assets/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,7 +36,7 @@ $total = count($categorias);
                     <div class="eyebrow">Gestão</div>
                     <h2>Categorias</h2>
                 </div>
-                <a href="addA.php" class="add">
+                <a href="/LaNotte/public/admin/categorias/addA.php" class="add">
                     <i class="fa-solid fa-plus"></i> Nova Categoria
                 </a>
             </div>
@@ -56,10 +56,10 @@ $total = count($categorias);
                                 Ordem <strong>#<?= $categoria['id'] ?></strong>
                             </div>
                             <div class="cat-acoes">
-                                <a href="editarA.php?id=<?= $categoria['id'] ?>" class="btn-editar">
+                                <a href="/LaNotte/public/admin/categorias/editarA.php?id=<?= $categoria['id'] ?>" class="btn-editar">
                                     <i class="fa-solid fa-pen"></i> Editar
                                 </a>
-                                <a href="deleteA.php?id=<?= $categoria['id'] ?>"
+                                <a href="/LaNotte/public/admin/categorias/deleteA.php?id=<?= $categoria['id'] ?>"
                                     class="btn-deletar"
                                     onclick="return confirm('Excluir? Esta ação não pode ser desfeita.')">
                                     <i class="fa-solid fa-trash"></i> Excluir

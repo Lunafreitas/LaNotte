@@ -1,11 +1,11 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
 if (!isset($_GET['id'])) {
-    header('Location: produtos.php');
+    header('Location: /LaNotte/public/admin/produtos/produtos.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ $stmt->execute();
 $produto = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$produto) {
-    header('Location: produtos.php');
+    header('Location: /LaNotte/public/admin/produtos/produtos.php');
     exit();
 }
 
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 
     $update->execute();
 
-    header('Location: produtos.php');
+    header('Location: /LaNotte/public/admin/produtos/produtos.php');
     exit();
 }
 ?>
@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>Painel Admin - Editar Produto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="/LaNotte/public/assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -73,57 +73,67 @@ if (isset($_POST['submit'])) {
 
 <body class="admin">
     <?php include '../../includes/nav_admin.php'; ?>
-    <div class="page-header">
-        <div class="eyebrow">Editar item</div>
-        <h2>Editar Produto</h2>
+    <div class="form-page">
+        <!-- Formulário -->
+        <div class="form-conteudo">
+            <div class="eyebrow" style="margin-bottom:8px;">Editar Produto</div>
+            <h2 style="margin-bottom:28px;">Editar Produto</h2>
+
+            <form method="post" enctype="multipart/form-data" class="form-grid">
+                <div class="form-campo">
+                <label>Categoria</label>
+                <select name="categoria_id" required>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id'] ?>" <?= ($categoria['id'] == $produto['categoria_id']) ? 'selected' : '' ?>>
+
+                            <?= $categoria['nome'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                </div>
+
+                <div class="form-campo">
+                    <label>Nome</label>
+                    <input type="text" name="nome" value="<?= $produto['nome'] ?>" required>
+                </div>
+
+                <div class="form-campo">
+                    <label>Descrição</label>
+                    <textarea name="descricao"><?= $produto['descricao'] ?></textarea>
+                </div>
+
+                <div class="form-campo">
+                    <label>Preço</label>
+                    <input type="number" step="0.01" name="preco" value="<?= $produto['preco'] ?>" required>
+                </div>
+
+                <div class="form-campo">
+                    <label>Nova Imagem</label>
+                    <input type="file" name="imagem">
+                </div>
+
+                <div class="form-campo">
+                    <label>Status</label>
+                    <select name="disponivel">
+                    <option value="Disponível" <?= ($produto['disponivel'] == 'Disponível') ? 'selected' : ''?>>
+                        Disponível
+                    </option>
+                    
+                    <option value="Indisponível"
+                    <?= ($produto['disponivel'] == 'Indisponível') ? 'selected' : '' ?>>Indisponível
+                     </option>
+                    </select>
+                </div>
+
+                <div class="form-acoes">
+                    <button type="submit" name="submit" class="btn-form-salvar">Atualizar</button>
+                    <a href="/LaNotte/public/admin/produtos/produtos.php" class="btn-form-cancelar"><i class="fa-solid fa-arrow-left"></i> Cancelar</a>
+                </div>
+
+            </form>
+
+        </div>
     </div>
-
-    <form method="post" enctype="multipart/form-data">
-
-        <label>Categoria</label><br>
-        <select name="categoria_id" required>
-            <?php foreach ($categorias as $categoria): ?>
-                <option value="<?= $categoria['id'] ?>" <?= ($categoria['id'] == $produto['categoria_id']) ? 'selected' : '' ?>>
-
-                    <?= $categoria['nome'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-
-        <label>Nome</label><br>
-        <input type="text" name="nome" value="<?= $produto['nome'] ?>" required><br>
-
-        <label>Descrição</label><br>
-        <textarea name="descricao"><?= $produto['descricao'] ?></textarea><br>
-
-        <label>Preço</label><br>
-        <input type="number" step="0.01" name="preco" value="<?= $produto['preco'] ?>" required><br>
-
-        <label>Imagem Atual</label><br>
-        <img src="../../images/<?= $produto['img_url'] ?>" width="120"><br>
-
-        <label>Nova Imagem</label><br>
-        <input type="file" name="imagem"><br>
-
-        <label>Status</label><br>
-        <select name="disponivel">
-            <option
-                value="Disponível"
-                <?= ($produto['disponivel'] == 'Disponível') ? 'selected': ''
-                ?>>
-                Disponível
-            </option>
-
-            <option value="Indisponível"
-                <?= ($produto['disponivel'] == 'Indisponível') ? 'selected': ''?>>Indisponível
-            </option>
-        </select><br>
-
-        <button type="submit" name="submit">Atualizar</button>
-
-    </form>
-
 </body>
 
 </html>

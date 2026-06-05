@@ -78,7 +78,7 @@ $total = count($users);
                             <td><?= $user['email'] ?></td>
                             <td>
                                 <div class="td-acoes">
-                                    <a href="excluir_usuario.php?id=<?= $user['id'] ?>"
+                                    <a href="/LaNotte/public/admin/excluir_usuario.php?id=<?= $user['id'] ?>"
                                         class="btn-deletar"
                                         onclick="return confirm('Excluir <?= $user['nome'] ?>? Esta ação não pode ser desfeita.')">
                                         <i class="fa-solid fa-trash"></i> Excluir

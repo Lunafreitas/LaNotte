@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conn.php';
+require_once '../../config/conn.php';
 
 $erro = '';
 
@@ -25,64 +25,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
             $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha, nivel) VALUES (?, ?, ?, 0)");
             $stmt->execute([$nome, $email, $senhaHash]);
-            header('Location: login.php');
+            header('Location: /LaNotte/public/login/login.php');
             exit();
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaNotte - Cadastro</title>
+    <title>La Notte — Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<body class="auth">
 
-<body>
+    <a href="/LaNotte/public/index.php" class="auth-back">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+    </a>
 
-    <a href="../index.php">← Voltar</a>
+    <div class="auth-box">
 
-    <?php if ($erro): ?>
-        <p><?= $erro ?></p>
-    <?php endif; ?>
+        <a href="/LaNotte/public/index.php" class="auth-logo">La<span>Notte</span>.</a>
 
-    <div>
-        <h1>La<span>Notte</span></h1>
-        <p>Crie sua conta gratuita</p>
+        <h1 class="auth-titulo">Cadastro</h1>
+        <p class="auth-sub">Crie sua conta gratuita e aproveite.</p>
 
-        <form action="" method="post">
-            <div>
+        <?php if ($erro): ?>
+            <div class="auth-erro">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <?= $erro ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="" method="post" class="auth-form" novalidate>
+            <div class="auth-campo">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome">
             </div>
-            <br>
-            <div>
+            <div class="auth-campo">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="email@exemplo.com">
             </div>
-            <br>
-            <div>
+            <div class="auth-campo">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" required>
+                <input type="password" id="senha" name="senha" placeholder="••••••••">
             </div>
-            <br>
-            <div>
+            <div class="auth-campo">
                 <label for="confirmar_senha">Confirmar Senha</label>
-                <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+                <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Repita a senha">
             </div>
-            <br>
-            <button type="submit">Criar Conta</button>
+            <button type="submit" class="auth-btn">Criar Conta</button>
         </form>
-        <br>
-        <div>
-            <p>Já tem uma conta?<a href="login.php">Faça login</a></p>
+
+        <div class="auth-ou"><span>ou</span></div>
+
+        <div class="auth-rodape">
+            <p>Já tem uma conta?</p>
+            <a href="/LaNotte/public/login/login.php">Fazer login</a>
         </div>
 
     </div>
 
 </body>
-
 </html>

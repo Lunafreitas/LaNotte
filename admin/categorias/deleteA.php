@@ -1,6 +1,6 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
     $stmt->bindValue(':id', $id);
     $stmt->execute();
 
-    header("Location: categorias.php");
+    header("Location: /LaNotte/public/admin/categorias/categorias.php");
     exit();
 }
 

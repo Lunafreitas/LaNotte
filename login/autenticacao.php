@@ -3,14 +3,14 @@ session_start();
 
 // Verifica se a pessoa está loogada
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /LaNotte/login/login.php");
+    header("Location: /LaNotte/public/login/login.php");
     exit();
 }
 
 // Verifica admin
 function verificarAdmin() {
     if ($_SESSION['user_nivel'] != 1) {
-        header("Location: /LaNotte/usuario/dashboard_user.php");
+        header("Location: /LaNotte/public/usuario/dashboard_user.php");
         exit();
     }
 }
@@ -18,7 +18,7 @@ function verificarAdmin() {
 // Verifica usuário
 function verificarUser() {
     if ($_SESSION['user_nivel'] != 0) {
-        header("Location: /LaNotte/admin/dashboard_admin.php");
+        header("Location: /LaNotte/public/admin/dashboard_admin.php");
         exit();
     }
 }

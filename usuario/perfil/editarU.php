@@ -1,11 +1,11 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
 
 if (!isset($_GET['id'])) {
-    header('Location: perfilU.php');
+    header('Location: /LaNotte/public/usuario/perfil/perfilU.php');
     exit();
 }
 
@@ -17,7 +17,7 @@ $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    header('Location: perfilU.php');
+    header('Location: /LaNotte/public/usuario/perfil/perfilU.php');
     exit();
 }
 
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
     $stmt->bindValue(':id', $id);
     $stmt->execute();
 
-    header('Location: perfilU.php');
+    header('Location: /LaNotte/public/usuario/perfil/perfilU.php');
     exit();
 }
 
@@ -80,7 +80,7 @@ $imagemAtual = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
 
         <form
             method="post"
-            action="editarU.php?id=<?= urlencode($id) ?>"
+            action="/LaNotte/public/usuario/perfil/editarU.php?id=<?= urlencode($id) ?>"
             enctype="multipart/form-data"
             class="editar-form" id="editar-form-id"
         >
@@ -117,7 +117,7 @@ $imagemAtual = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
             <button type="submit" name="submit" form="editar-form-id" class="btn-salvar">
                 <i class="fa-solid fa-check"></i> Salvar
             </button>
-            <a href="perfilU.php" class="btn-voltar-perfil">
+            <a href="/LaNotte/public/usuario/perfil/perfilU.php" class="btn-voltar-perfil">
                 <i class="fa-solid fa-arrow-left"></i> Cancelar
             </a>
         </div>

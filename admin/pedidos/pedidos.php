@@ -1,6 +1,6 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_status'])) {
         $update->execute();
     }
 
-    header('Location: pedidos.php');
+    header('Location: /LaNotte/public/admin/pedidos/pedidos.php');
     exit();
 }
 
@@ -37,7 +37,7 @@ $total = count($pedidos);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Admin — Pedidos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="/LaNotte/public/assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -92,10 +92,9 @@ $total = count($pedidos);
 
                             <td>
                                 <form method="post">
-
                                     <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
 
-                                    <select name="status" onchange="this.form.submit()">
+                                    <select name="status">
                                         <option value="Esperando Confirmação" <?= $pedido['status'] === 'Esperando Confirmação' ? 'selected' : '' ?>>Esperando Confirmação
                                         </option>
 
@@ -113,7 +112,7 @@ $total = count($pedidos);
                             <td><?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></td>
                             <td>
                                 <a
-                                    href="excluir_pedido.php?id=<?= $pedido['id'] ?>"
+                                    href="/LaNotte/public/admin/pedidos/excluir_pedido.php?id=<?= $pedido['id'] ?>"
                                     class="btn-deletar"
                                     onclick="return confirm('Deseja cancelar este pedido? Esta ação não pode ser desfeita.')">
                                     <i class="fa-solid fa-trash"></i>

@@ -129,7 +129,7 @@
 
 <aside class="sidebar">
 
-    <a href="/LaNotte/usuario/dashboard_user.php" class="sidebar-logo">
+    <a href="/LaNotte/public/usuario/dashboard_user.php" class="sidebar-logo">
         <span class="sidebar-logo-txt">La<span>Notte</span>.</span>
         <span class="sidebar-badge">Painel Usuário</span>
     </a>
@@ -138,37 +138,37 @@
 
         <span class="sidebar-grupo">Visão Geral</span>
 
-        <a href="/LaNotte/usuario/dashboard_user.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/dashboard_user.php" class="sidebar-link">
             <i class="fa-solid fa-house"></i> Inicio
         </a>
 
         <span class="sidebar-grupo">Compras</span>
 
-        <a href="/LaNotte/usuario/cardapio/cardapio.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/cardapio/cardapio.php" class="sidebar-link">
             <i class="fa-solid fa-bag-shopping"></i> Cardápio
         </a>
 
-        <a href="/LaNotte/usuario/carrinho/carrinho.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/carrinho/carrinho.php" class="sidebar-link">
             <i class="fa-solid fa-cart-shopping"></i> Meu Carrinho
         </a>
 
-        <a href="/LaNotte/usuario/avaliacoes/avaliacoes.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/avaliacoes/avaliacoes.php" class="sidebar-link">
             <i class="fa-regular fa-star"></i> Avaliações
         </a>
 
-        <a href="/LaNotte/usuario/historico/historico.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/historico/historico.php" class="sidebar-link">
             <i class="fa-solid fa-clock"></i> Pedidos
         </a>
 
         <span class="sidebar-grupo">Conta</span>
 
-        <a href="/LaNotte/usuario/perfil/perfilU.php" class="sidebar-link">
+        <a href="/LaNotte/public/usuario/perfil/perfilU.php" class="sidebar-link">
             <i class="fa-solid fa-user"></i> Perfil
         </a>
     </nav>
 
     <div class="sidebar-footer">
-        <a href="/LaNotte/login/logout.php" class="sidebar-sair">
+        <a href="/LaNotte/public/login/logout.php" class="sidebar-sair">
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>

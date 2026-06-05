@@ -129,7 +129,7 @@
 
 <aside class="sidebar">
 
-    <a href="/LaNotte/admin/dashboard_admin.php" class="sidebar-logo">
+    <a href="/LaNotte/public/admin/dashboard_admin.php" class="sidebar-logo">
         <span class="sidebar-logo-txt">La<span>Notte</span>.</span>
         <span class="sidebar-badge">Painel Admin</span>
     </a>
@@ -138,45 +138,41 @@
 
         <span class="sidebar-grupo">Visão Geral</span>
 
-        <a href="/LaNotte/admin/dashboard_admin.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/dashboard_admin.php" class="sidebar-link">
             <i class="fa-solid fa-chart-pie"></i> Inicio
         </a>
 
         <span class="sidebar-grupo">Gestão</span>
 
-        <a href="/LaNotte/admin/produtos/produtos.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/produtos/produtos.php" class="sidebar-link">
             <i class="fa-solid fa-utensils"></i> Produtos
         </a>
 
-        <a href="/LaNotte/admin/categorias/categorias.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/categorias/categorias.php" class="sidebar-link">
             <i class="fa-solid fa-tags"></i> Categorias
         </a>
 
-        <a href="/LaNotte/admin/pedidos/pedidos.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/pedidos/pedidos.php" class="sidebar-link">
             <i class="fa-solid fa-receipt"></i> Pedidos
         </a>
 
-        <a href="/LaNotte/admin/usuarios.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/usuarios.php" class="sidebar-link">
             <i class="fa-solid fa-users"></i> Usuários
         </a>
 
-        <a href="/LaNotte/admin/avaliacoes/avaliacoes_excluir.php" class="sidebar-link">
+        <a href="/LaNotte/public/admin/avaliacoes/avaliacoes_excluir.php" class="sidebar-link">
             <i class="fa-solid fa-chart-bar"></i> Avaliações
         </a>
 
         <span class="sidebar-grupo">Conta</span>
 
-        <a href="/LaNotte/admin/perfil.php" class="sidebar-link">
-            <i class="fa-solid fa-user"></i> Perfil
-        </a>
-
-        <a href="/LaNotte/index.php" class="sidebar-link">
+        <a href="/LaNotte/public/index.php" class="sidebar-link">
             <i class="fa-solid fa-globe"></i> Ver Site
         </a>
     </nav>
 
     <div class="sidebar-footer">
-        <a href="/LaNotte/login/logout.php" class="sidebar-sair">
+        <a href="/LaNotte/public/login/logout.php" class="sidebar-sair">
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>

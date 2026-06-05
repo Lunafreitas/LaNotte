@@ -1,6 +1,6 @@
 <?php
 require_once '../../config/conn.php';
-require_once '../../login/autenticacao.php';
+require_once '../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -12,7 +12,7 @@ if (isset($_GET['excluir'])) {
         $delete->execute();
     }
 
-    header('Location: avaliacoes_excluir.php');
+    header('Location: /LaNotte/public/admin/avaliacoes/avaliacoes_excluir.php');
     exit();
 }
 
@@ -72,13 +72,7 @@ $total_avaliacoes = count($avaliacoes);
 
                     <p class="avaliacao-texto" style="color: rgba(255, 255, 255, .65);"><?= $avaliacao['comentario'] ?></p>
                         <div class="avaliacao-acoes">                
-                            <a
-                                href="avaliacoes_excluir.php?excluir=<?= $avaliacao['review_id']; ?>"
-                                class="btn-av-excluir"
-                                onclick="return confirm('Excluir esta avaliação? Esta ação não pode ser desfeita.')">
-                                <i class="fa-solid fa-trash"></i>
-                                Excluir
-                            </a>
+                            <a href="/LaNotte/public/admin/avaliacoes/avaliacoes_excluir.php?excluir=<?= $avaliacao['review_id']; ?>" class="btn-av-excluir" onclick="return confirm('Excluir esta avaliação? Esta ação não pode ser desfeita.')"> <i class="fa-solid fa-trash"></i> Excluir </a>
                         </div>
 
                 </div>

@@ -1,5 +1,5 @@
-Ôªø<?php
-require_once '../../config/conn.php';
+<?php
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -11,78 +11,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $acao = $_POST['acao'] ?? null;
 
     if ($id && $acao) {
-
         if ($acao === 'aumentar') {
-
-            $stmt = $pdo->prepare("
-                UPDATE carrinho
-                SET quantidade = quantidade + 1
-                WHERE id = ? AND user_id = ?
-            ");
-
+            $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade + 1 WHERE id = ? AND user_id = ?");
             $stmt->execute([$id, $user_id]);
-        }
-
-      elseif ($acao === 'diminuir') {
-
-            $stmt = $pdo->prepare("
-                SELECT quantidade
-                FROM carrinho
-                WHERE id = ? AND user_id = ?
-            ");
-
+        } elseif ($acao === 'diminuir') {
+            $stmt = $pdo->prepare("SELECT quantidade FROM carrinho WHERE id = ? AND user_id = ?");
             $stmt->execute([$id, $user_id]);
-
             $quantidadeAtual = (int) $stmt->fetchColumn();
 
             if ($quantidadeAtual <= 1) {
-
-                $stmt = $pdo->prepare("
-                    DELETE FROM carrinho
-                    WHERE id = ? AND user_id = ?
-                ");
-
+                $stmt = $pdo->prepare("DELETE FROM carrinho WHERE id = ? AND user_id = ?");
                 $stmt->execute([$id, $user_id]);
             } else {
-
-                $stmt = $pdo->prepare("
-                    UPDATE carrinho
-                    SET quantidade = quantidade - 1
-                    WHERE id = ? AND user_id = ?
-                ");
-
+                $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade - 1 WHERE id = ? AND user_id = ?");
                 $stmt->execute([$id, $user_id]);
             }
-        }
-
-    elseif ($acao === 'excluir') {
-
-            $stmt = $pdo->prepare("
-                DELETE FROM carrinho
-                WHERE id = ? AND user_id = ?
-            ");
-
+        } elseif ($acao === 'excluir') {
+            $stmt = $pdo->prepare("DELETE FROM carrinho WHERE id = ? AND user_id = ?");
             $stmt->execute([$id, $user_id]);
         }
     }
 
-    header('Location: carrinho.php');
+    header('Location: /LaNotte/public/usuario/carrinho/carrinho.php');
     exit();
 }
 
-$stmt = $pdo->prepare("
-    SELECT
-        c.id,
-        c.quantidade,
-        p.nome,
-        p.preco,
-        p.img_url
-    FROM carrinho c
-    INNER JOIN produtos p
-        ON c.produto_id = p.id
-    WHERE c.user_id = ?
-    ORDER BY c.id ASC
-");
+$stmt = $pdo->prepare("SELECT c.id, c.quantidade, p.nome, p.preco, p.img_url FROM carrinho c INNER JOIN produtos p ON c.produto_id = p.id WHERE c.user_id = ? ORDER BY c.id ASC");
 
 $stmt->execute([$user_id]);
 
@@ -93,13 +47,9 @@ $total_itens = 0;
 $nomesPedido = [];
 
 foreach ($itens as $item) {
-
     $subtotal = $item['preco'] * $item['quantidade'];
-
     $total += $subtotal;
-
     $total_itens += $item['quantidade'];
-
     $nomesPedido[] = $item['nome'];
 }
 
@@ -108,16 +58,18 @@ $pedidoTexto = implode(', ', $nomesPedido);
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Notte ‚Äî Meu  Carrinho</title>
+    <title>La Notte ó Meu Carrinho</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/LaNotte/assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="user">
     <?php include '../../includes/nav_user.php'; ?>
 
@@ -132,9 +84,9 @@ $pedidoTexto = implode(', ', $nomesPedido);
 
         <div class="carrinho-vazio">
             <i class="fa-solid fa-cart-shopping"></i>
-            <p class="carrinho-vazio-txt">Seu carrinho est√° vazio</p>
+            <p class="carrinho-vazio-txt">Seu carrinho est· vazio</p>
 
-            <a href="../cardapio/cardapio.php" class="btn-voltar-cardapio"><i class="fa-solid fa-arrow-left"></i>Ver Card√°pio</a>
+            <a href="/LaNotte/public/usuario/cardapio/cardapio.php" class="btn-voltar-cardapio"><i class="fa-solid fa-arrow-left"></i>Ver Card·pio</a>
         </div>
 
     <?php else: ?>
@@ -147,7 +99,7 @@ $pedidoTexto = implode(', ', $nomesPedido);
                     <thead>
                         <tr>
                             <th>Produto</th>
-                            <th>Pre√ßo Uni.</th>
+                            <th>PreÁo Uni.</th>
                             <th>Quantidade</th>
                             <th>Subtotal</th>
                             <th>Remover</th>
@@ -171,9 +123,7 @@ $pedidoTexto = implode(', ', $nomesPedido);
                                     <div class="qtd-controle">
                                         <form method="post">
                                             <input type="hidden" name="id" value="<?= $item['id'] ?>">
-
                                             <input type="hidden" name="acao" value="diminuir">
-
                                             <button type="submit" class="qtd-btn"><i class="fa-solid fa-minus"></i></button>
                                         </form>
 
@@ -182,11 +132,8 @@ $pedidoTexto = implode(', ', $nomesPedido);
                                         </span>
 
                                         <form method="post">
-
                                             <input type="hidden" name="id" value="<?= $item['id'] ?>">
-
                                             <input type="hidden" name="acao" value="aumentar">
-
                                             <button type="submit" class="qtd-btn"> <i class="fa-solid fa-plus"></i></button>
                                         </form>
                                     </div>
@@ -230,8 +177,7 @@ $pedidoTexto = implode(', ', $nomesPedido);
                     </div>
                 </div>
 
-                <form method="post" action="finalizar.php">
-
+                <form method="post" action="/LaNotte/public/usuario/carrinho/finalizar.php">
                     <input type="hidden" name="total" value="<?= $total ?>">
 
                     <input type="hidden" name="pedido" value="<?= $pedidoTexto ?>">

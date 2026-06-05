@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
         $insert->execute([$user_id, $produto_id, $preco]);
     }
 
-    header("Location: cardapio.php");
+    header("Location: /LaNotte/public/usuario/cardapio/cardapio.php");
     exit;
 }
 ?>

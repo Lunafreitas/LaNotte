@@ -34,10 +34,10 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
             <h2>Dashboard <span style="color:var(--amarelo)">Admin</span></h2>
         </div>
         <div style="display:flex;gap:12px;">
-            <a href="produtos/produtos.php" class="add" style="background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
+            <a href="/LaNotte/public/admin/produtos/produtos.php" class="add" style="background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
                 <i class="fa-solid fa-utensils"></i> Produtos
             </a>
-            <a href="categorias/categorias.php" class="add">
+            <a href="/LaNotte/public/admin/categorias/categorias.php" class="add">
                 <i class="fa-solid fa-plus"></i> Nova Categoria
             </a>
         </div>
@@ -73,19 +73,19 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
     <div class="dash-row">
         <div class="acoes-rapidas">
             <div class="acoes-rapidas-topo">Ações Rápidas</div>
-            <a href="produtos/produtos.php"       class="acao-item">
+            <a href="/LaNotte/public/admin/produtos/produtos.php"       class="acao-item">
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-utensils"></i></div><div><div class="acao-titulo">Produtos</div><div class="acao-desc">Gerenciar cardápio</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
-            <a href="categorias/categorias.php"   class="acao-item">
+            <a href="/LaNotte/public/admin/categorias/categorias.php"   class="acao-item">
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-tags"></i></div><div><div class="acao-titulo">Categorias</div><div class="acao-desc">Organizar seções</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
-            <a href="usuarios.php"                class="acao-item">
+            <a href="/LaNotte/public/admin/usuarios.php"                class="acao-item">
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-users"></i></div><div><div class="acao-titulo">Usuários</div><div class="acao-desc">Ver contas</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
-            <a href="pedidos.php"                 class="acao-item">
+            <a href="/LaNotte/public/admin/pedidos/pedidos.php"                 class="acao-item">
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-receipt"></i></div><div><div class="acao-titulo">Pedidos</div><div class="acao-desc">Acompanhar</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
@@ -94,7 +94,7 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
         <div class="tabela-wrap">
             <div class="tabela-topo">
                 <span class="tabela-label">Últimos Usuários</span>
-                <a href="usuarios.php" class="add" style="padding:6px 14px;font-size:8px;background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
+                <a href="/LaNotte/public/admin/usuarios.php" class="add" style="padding:6px 14px;font-size:8px;background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
                     Ver todos <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>

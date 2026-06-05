@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conn.php';
+require_once '../../../config/conn.php';
 require_once '../../login/autenticacao.php';
 
 verificarUser();
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
         $stmt->bindValue(':img_user', $img_user);
         $stmt->execute();
 
-        header('Location: avaliacoes.php');
+        header('Location: /LaNotte/public/usuario/avaliacoes/avaliacoes.php');
         exit();
     }
 }
@@ -62,7 +62,7 @@ if (isset($_POST['salvar_edicao'])) {
         $update->execute();
     }
 
-    header('Location: avaliacoes.php');
+    header('Location: /LaNotte/public/usuario/avaliacoes/avaliacoes.php');
     exit();
 }
 
@@ -78,7 +78,7 @@ if (isset($_GET['excluir']) && is_numeric($_GET['excluir'])) {
     $del->bindValue(':uid', $_SESSION['user_id'], PDO::PARAM_INT);
     $del->execute();
 
-    header('Location: avaliacoes.php');
+    header('Location: /LaNotte/public/usuario/avaliacoes/avaliacoes.php');
     exit();
 }
 
@@ -153,10 +153,8 @@ $user_id_atual = $_SESSION['user_id'];
 
                     <p class="avaliacao-texto"><?= $avaliacao['comentario'] ?></p>
 
-                    <!-- Editar/excluir — apenas para o dono da avaliação -->
                     <?php if ((int)$avaliacao['user_id'] === $user_id_atual): ?>
                         <div class="avaliacao-acoes">
-                            <!-- Editar abre o modal e preenche os campos via JS -->
                             <button
                                 type="button"
                                 class="btn-av-editar abrirModal"
@@ -168,7 +166,7 @@ $user_id_atual = $_SESSION['user_id'];
                             </button>
 
                             <a
-                                href="avaliacoes.php?excluir=<?= $avaliacao['review_id']; ?>"
+                                href="/LaNotte/public/usuario/avaliacoes/avaliacoes.php?excluir=<?= $avaliacao['review_id']; ?>"
                                 class="btn-av-excluir"
                                 onclick="return confirm('Excluir sua avaliação? Esta ação não pode ser desfeita.')">
                                 <i class="fa-solid fa-trash"></i>
@@ -218,7 +216,7 @@ $user_id_atual = $_SESSION['user_id'];
             </button>
         </div>
 
-        <form method="post" action="avaliacoes.php">
+        <form method="post" action="/LaNotte/public/usuario/avaliacoes/avaliacoes.php">
             <input type="hidden" name="review_id" id="modal-review-id">
 
             <div class="modal-corpo">
