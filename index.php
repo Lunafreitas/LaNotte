@@ -22,8 +22,8 @@
     <li><a href="#diferenciais">Diferenciais</a></li>
     <li><a href="#cardapio">Cardápio</a></li>
     <li><a href="#avaliacoes">Avaliações</a></li>
-    <li><a href="../login/login.php" class="btn-login">Entrar</a></li>
-    <li><a href="../login/cadastro.php" class="btn-cadastro">Cadastrar</a></li>
+    <li><a href="public/login/login.php" class="btn-login">Entrar</a></li>
+    <li><a href="public/login/cadastro.php" class="btn-cadastro">Cadastrar</a></li>
   </ul>
 </nav>
 
@@ -41,7 +41,7 @@
     <p class="hero-desc">Sabores que atravessam gerações. Ingredientes importados, massas feitas à mão e a autenticidade da nonna Rosaria em cada prato.</p>
     <div class="hero-btns">
         <a href="#cardapio" class="btn-cardapio">Ver Cardápio</a>
-        <a href="login/login.php" class="btn-mesa">Fazer pedido</a>
+        <a href="public/login/login.php" class="btn-mesa">Fazer pedido</a>
     </div>
 </div>
 <div class="hero-right">
@@ -181,7 +181,7 @@
       <span class="section-tag">Cardápio</span>
       <h2 class="section-h2">Destaques do<br>Cardápio</h2>
     </div>
-    <a href="/LaNotte/public/login/login.php" class="cardapio-link">Cardápio Completo →</a>
+    <a href="/public/login/login.php" class="cardapio-link">Cardápio Completo →</a>
   </div>
   <div class="menu-grid">
     <div class="menu-card">
@@ -289,7 +289,7 @@
   <div class="footer-links">
     <a href="#historia">História</a>
     <a href="#cardapio">Cardápio</a>
-    <a href="/LaNotte/public/login/login.php">Entrar</a>
+    <a href="/public/login/login.php">Entrar</a>
   </div>
 </footer>
 

@@ -1,65 +1,58 @@
 services:
-    php:
-        build:
-            context: .
-            dockerfile: docker/Dockerfile
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
 
-        container_name: lanotte_php
-        ports:
-            - "8080:80"
-        volumes:
-            - .:/var/www/html
-        depends_on:
-            - mysql
+    container_name: lanotte_app
 
-        networks:
-            - rede_aulaLogin
+    ports:
+      - "8080:80"
 
-    mysql:
-        image: mysql:8.0
+    volumes:
+      - ./:/var/www/html
 
-        container_name: lanotte_mysql
+    depends_on:
+      - banco
 
-        environment:
-            MYSQL_ROOT_PASSWORD: senha_root_123
-            MYSQL_DATABASE: lanotte
-            MYSQL_USER: lanotte_user
-            MYSQL_PASSWORD: lanotte123
+  banco:
+    image: mariadb:10.11
 
-        volumes:
-            - dados_mysql:/var/lib/mysql
+    container_name: lanotte_banco
 
-            - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
 
-        ports:
-            - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: lanotte
+      MARIADB_USER: lanotte
+      MARIADB_PASSWORD: lanotte123
 
-        networks:
-            - rede_aulaLogin
+    ports:
+      - "3307:3306"
 
-    phpmyadmin:
-        image: phpmyadmin:latest
+    volumes:
+      - banco_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
 
-        container_name: lanotte_phpmyadmin
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
-        environment:
-            PMA_HOST: mysql
-            PMA_USER: root
-            PMA_PASSWORD: senha_root_123
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
 
-        ports:
-            # Acesse o phpMyAdmin em: http://localhost:8081
-            - "8081:80"
+    container_name: lanotte_pma
 
-        depends_on:
-            - mysql
+    restart: always
 
-        networks:
-            - rede_aulaLogin
+    ports:
+      - "8081:80"
+
+    environment:
+      PMA_HOST: banco
+      PMA_PORT: 3306
+
+    depends_on:
+      - banco
 
 volumes:
-    dados_mysql:
-
-networks:
-    rede_aulaLogin:
-        driver: bridge
+  banco_data:
