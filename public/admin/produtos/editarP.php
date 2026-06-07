@@ -5,7 +5,7 @@ require_once '../../login/autenticacao.php';
 verificarAdmin();
 
 if (!isset($_GET['id'])) {
-    header('Location: /LaNotte/public/admin/produtos/produtos.php');
+    header('Location: /public/admin/produtos/produtos.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ $stmt->execute();
 $produto = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$produto) {
-    header('Location: /LaNotte/public/admin/produtos/produtos.php');
+    header('Location: /public/admin/produtos/produtos.php');
     exit();
 }
 
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 
     $update->execute();
 
-    header('Location: /LaNotte/public/admin/produtos/produtos.php');
+    header('Location: /public/admin/produtos/produtos.php');
     exit();
 }
 ?>

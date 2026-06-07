@@ -46,7 +46,7 @@
 </div>
 <div class="hero-right">
     <div class="hero-img">
-        <img src="images/pizza-heropage.png" alt="Prato italiano">
+        <img src="public/images/pizza-heropage.png" alt="Prato italiano">
         <div class="badge">★ Desde 1987 ★</div>
     </div>
 </div>
@@ -77,7 +77,7 @@
 <!-- historia -->
 <section class="historia" id="historia" data-nav="dark">
   <div class="historia-img">
-    <img src="images/restaurantelanotte.jfif" alt="Restaurante La Notte">
+    <img src="public/images/restaurantelanotte.jfif" alt="Restaurante La Notte">
     <div class="historia-data">1987<small>Fundação</small></div>
   </div>
   <div class="historia-text">
@@ -185,7 +185,7 @@
   </div>
   <div class="menu-grid">
     <div class="menu-card">
-      <img class="menu-card-img" src="images/Carbonara.jpg" alt="Carbonara">
+      <img class="menu-card-img" src="public/images/Carbonara.jpg" alt="Carbonara">
       <div class="menu-card-body">
         <h3>Spaghetti alla Carbonara</h3>
         <p>Prato romano autêntico: ovos, pecorino, guanciale e pimenta preta. Sem creme de leite.</p>
@@ -193,7 +193,7 @@
       <div class="menu-card-footer"><span class="menu-tag">Massa</span><span class="menu-price">R$ 72</span></div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="images/Pizza-napoletana.jpg" alt="Pizza Napoletana">
+      <img class="menu-card-img" src="public/images/Pizza-napoletana.jpg" alt="Pizza Napoletana">
       <div class="menu-card-body">
         <h3>Pizza Napoletana</h3>
         <p>Originária de Nápoles, com massa fina no centro e bordas altas e macias.</p>
@@ -201,7 +201,7 @@
       <div class="menu-card-footer"><span class="menu-tag">Pizza</span><span class="menu-price">R$ 68</span></div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="images/lasanha-bolonhesa.webp" alt="Lasanha">
+      <img class="menu-card-img" src="public/images/lasanha-bolonhesa.webp" alt="Lasanha">
       <div class="menu-card-body">
         <h3>Lasanha à Bolonhesa</h3>
         <p>Camadas de massa com ragù de carne, besciamella e queijo parmesão.</p>
@@ -209,7 +209,7 @@
       <div class="menu-card-footer"><span class="menu-tag">Massa</span><span class="menu-price">R$ 78</span></div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="images/risoto.jpg" alt="Risotto">
+      <img class="menu-card-img" src="public/images/risoto.jpg" alt="Risotto">
       <div class="menu-card-body">
         <h3>Risotto alla Milanese</h3>
         <p>Arroz arbóreo com caldo de legumes, funghi porcini e toque de parmesão.</p>
@@ -217,7 +217,7 @@
       <div class="menu-card-footer"><span class="menu-tag">Risotto</span><span class="menu-price">R$ 85</span></div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="images/ossobuco.webp" alt="Ossobuco">
+      <img class="menu-card-img" src="public/images/ossobuco.webp" alt="Ossobuco">
       <div class="menu-card-body">
         <h3>Ossobuco</h3>
         <p>Vitela cozida lentamente com vegetais, vinho e caldo, com Risotto alla Milanese.</p>
@@ -225,7 +225,7 @@
       <div class="menu-card-footer"><span class="menu-tag">Carnes</span><span class="menu-price">R$ 118</span></div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="images/tiramisu.jpg" alt="Tiramisu">
+      <img class="menu-card-img" src="public/images/tiramisu.jpg" alt="Tiramisu">
       <div class="menu-card-body">
         <h3>Tiramisù</h3>
         <p>Sobremesa cremosa com biscoito champanhe embebido em café e creme de mascarpone.</p>
