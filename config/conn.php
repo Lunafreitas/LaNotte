@@ -1,23 +1,24 @@
 <?php
-require_once __DIR__ . "env.php";
 
-carregar_env(__DIR__ . "/../../.env");
-
-$usuario = $_ENV["DB_USERNAME"];
-$senha = $_ENV["DB_PASSWORD"];
-$host = $_ENV["DB_HOST"];
-$porta = $_ENV["DB_PORT"];
-$banco = $_ENV["DB_DATABASE"];
+$host = getenv("DB_HOST") ?: "db";
+$banco = getenv("DB_NAME") ?: "lanotte";
+$usuario = getenv("DB_USER") ?: "lanotte";
+$senha = getenv("DB_PASS") ?: "lanotte123";
 
 try {
-        $pdo = new PDO(
-        "mysql:host={$host};port={$porta};dbname={$banco};charset=utf8mb4",
+
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$banco;charset=utf8mb4",
         $usuario,
         $senha
     );
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
 } catch (PDOException $e) {
-    die("Erro na conexão com o banco: " . $e->getMessage());
+
+    error_log("Erro ao conectar no banco: " . $e->getMessage());
+    die("Erro ao conectar ao banco de dados.");
+
 }
