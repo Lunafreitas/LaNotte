@@ -6,12 +6,12 @@ verificarUser();
 
 $stmt = $pdo->query(
   "SELECT produtos.*, categorias.nome AS categoria_nome FROM produtos LEFT JOIN categorias ON produtos.categoria_id = categorias.id ORDER BY categorias.nome, produtos.nome"
-);
-$produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
+  );
+  $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
+  
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +26,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body class="user">
 
   <?php include '../../includes/nav_user.php'; ?>
-
+    
   <section class="cardapio-user" id="cardapio">
-
+    
     <div class="cardapio-user-header">
       <div>
         <span class="section-tag">Cada prato feito com amor</span>
@@ -43,12 +43,12 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="menu-grid-4">
       <?php foreach ($produtos as $produto):
         $disponivel = ($produto['disponivel'] == 'Disponível');
-      ?>
+        ?>
         <div class="menu-card-4 <?= !$disponivel ? 'indisponivel' : '' ?>">
 
           <div class="card4-img-wrap">
             <img src="../../images/<?= $produto['img_url'] ?>" alt="<?= $produto['nome'] ?>" class="card4-img">
-
+            
             <?php if (!$disponivel): ?>
               <div class="card4-indisponivel-overlay">Indisponível</div>
             <?php endif; ?>
@@ -58,7 +58,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="card4-body">
             <!-- Tag de categoria -->
             <span class="menu-tag"><?= $produto['categoria_nome'] ?></span>
-
+            
             <h3 class="card4-nome"><?= $produto['nome'] ?></h3>
             <p class="card4-desc"><?= $produto['descricao'] ?></p>
           </div>
@@ -68,29 +68,48 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <!-- os botões -->
             <?php if ($disponivel): ?>
-              <a href="/public/usuario/cardapio/add_carrinho.php?id=<?= $produto['id'] ?>" class="btn-carrinho">
+              <a href="/public/usuario/cardapio/add_carrinho.php?id=<?= $produto['id'] ?>" class="btn-carrinho"
+                onclick="mostrarMensagem(event)">
                 <i class="fa-solid fa-plus"></i>
                 Adicionar
               </a>
-            <?php else: ?>
-              <button type="button" class="btn-carrinho btn-carrinho-off" disabled aria-disabled="true">
-                <i class="fa-solid fa-ban"></i>
-                Indisponível
-              </button>
-            <?php endif; ?>
+              <?php else: ?>
+                <button type="button" class="btn-carrinho btn-carrinho-off" disabled aria-disabled="true">
+                  <i class="fa-solid fa-ban"></i>
+                  Indisponível
+                </button>
+                <?php endif; ?>
           </div>
         </div>
-      <?php endforeach; ?>
-
-      <?php if (empty($produtos)): ?>
-        <div class="cardapio-vazio">
-          <i class="fa-solid fa-utensils"></i>
-          <p>Nenhum produto disponível no momento.</p>
+        <?php endforeach; ?>
+        
+        
+        <?php if (empty($produtos)): ?>
+          <div class="cardapio-vazio">
+            <i class="fa-solid fa-utensils"></i>
+            <p>Nenhum produto disponível no momento.</p>
+          </div>
+          <?php endif; ?>
         </div>
-      <?php endif; ?>
-    </div>
 
-  </section>
+        <div id="minhaMensagem" class="mensagem">Adicionado ao carrinho!</div>
+        
+      </section>
+      
+<script>
+function mostrarMensagem(event) {
+    event.preventDefault(); // impede a troca imediata de página
+
+    const mensagem = document.getElementById('minhaMensagem');
+    mensagem.classList.add('mostrar');
+
+    const destino = event.currentTarget.href;
+
+    setTimeout(() => {
+        window.location.href = destino; // vai para o PHP após 2 segundos
+    }, 2000);
+}
+</script>
 
 </body>
 

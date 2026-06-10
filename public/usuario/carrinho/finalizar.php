@@ -4,8 +4,8 @@ require_once '../../login/autenticacao.php';
 
 verificarUser();
 
-if (isset($_POST['submit'])) {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     if (empty($_POST['total']) || empty($_POST['pedido'])) {
         die('Dados do pedido não enviados.');
     }

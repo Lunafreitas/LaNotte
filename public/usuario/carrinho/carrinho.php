@@ -177,19 +177,42 @@ $pedidoTexto = implode(', ', $nomesPedido);
                     </div>
                 </div>
 
-                <form method="post" action="/public/usuario/carrinho/finalizar.php">
+                <form id="formFinalizar" method="post" action="/public/usuario/carrinho/finalizar.php">
                     <input type="hidden" name="total" value="<?= $total ?>">
 
                     <input type="hidden" name="pedido" value="<?= $pedidoTexto ?>">
 
                     <input type="hidden" name="quantidade" value="<?= $total_itens ?>">
 
-                    <button type="submit" class="btn-finalizar" name="submit">Finalizar Pedido<i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="submit" class="btn-finalizar" name="submit">
+                        Finalizar Pedido<i class="fa-solid fa-arrow-right"></i></button>
                 </form>
             </div>
         </div>
 
     <?php endif; ?>
+
+    <div id="minhaMensagem" class="mensagem">Pedido finalizado!</div>
+
+    <script>
+        const form = document.getElementById('formFinalizar');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const mensagem = document.getElementById('minhaMensagem');
+                mensagem.classList.add('mostrar');
+
+                setTimeout(() => {
+                    mensagem.classList.remove('mostrar');
+
+                    // envia o formulário de verdade
+                    HTMLFormElement.prototype.submit.call(form);
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>
