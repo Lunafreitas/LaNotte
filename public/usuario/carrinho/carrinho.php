@@ -7,31 +7,29 @@ verificarUser();
 $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'] ?? null;
-    $acao = $_POST['acao'] ?? null;
+    $id = $_POST['id']; // ID do item no carrinho
+    $acao = $_POST['acao'];
 
-    if ($id && $acao) {
-        if ($acao === 'aumentar') {
-            $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade + 1 WHERE id = ? AND user_id = ?");
-            $stmt->execute([$id, $user_id]);
-        } elseif ($acao === 'diminuir') {
-            $stmt = $pdo->prepare("SELECT quantidade FROM carrinho WHERE id = ? AND user_id = ?");
-            $stmt->execute([$id, $user_id]);
-            $quantidadeAtual = (int) $stmt->fetchColumn();
+    if ($acao === 'aumentar') {
+        $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade + 1 WHERE id = ? AND user_id = ?");
+        $stmt->execute([$id, $user_id]);
+    } elseif ($acao === 'diminuir') {
+        $stmt = $pdo->prepare("SELECT quantidade FROM carrinho WHERE id = ? AND user_id = ?");
+        $stmt->execute([$id, $user_id]);
+        $quantidadeAtual = $stmt->fetchColumn();
 
-            if ($quantidadeAtual <= 1) {
-                $stmt = $pdo->prepare("DELETE FROM carrinho WHERE id = ? AND user_id = ?");
-                $stmt->execute([$id, $user_id]);
-            } else {
-                $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade - 1 WHERE id = ? AND user_id = ?");
-                $stmt->execute([$id, $user_id]);
-            }
-        } elseif ($acao === 'excluir') {
+        if ($quantidadeAtual <= 1) {
             $stmt = $pdo->prepare("DELETE FROM carrinho WHERE id = ? AND user_id = ?");
             $stmt->execute([$id, $user_id]);
+        } else {
+            $stmt = $pdo->prepare("UPDATE carrinho SET quantidade = quantidade - 1 WHERE id = ? AND user_id = ?");
+            $stmt->execute([$id, $user_id]);
         }
+    } elseif ($acao === 'excluir') {
+        $stmt = $pdo->prepare("DELETE FROM carrinho WHERE id = ? AND user_id = ?");
+        $stmt->execute([$id, $user_id]);
     }
-
+    
     header('Location: /public/usuario/carrinho/carrinho.php');
     exit();
 }
