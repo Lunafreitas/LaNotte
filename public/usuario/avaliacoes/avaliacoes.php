@@ -7,7 +7,7 @@ verificarUser();
 if (isset($_POST['submit'])) {
     $user_id = $_SESSION['user_id'];
     $comentario = trim($_POST['comentario']);
-    $nota = (int) $_POST['nota'];
+    $nota = $_POST['nota'];
     $data = date('Y-m-d');
 
     if (!empty($comentario) && $nota >= 1 && $nota <= 5) {
@@ -17,10 +17,9 @@ if (isset($_POST['submit'])) {
         $usuario = $stmtImg->fetch(PDO::FETCH_ASSOC);
         $img_user = !empty($usuario['img_user']) ? $usuario['img_user'] : 'semfoto.jpg';
 
-        $stmt = $pdo->prepare("INSERT INTO reviews (id, user_id, nota, comentario, data, img_user) VALUES (:id, :user_id, :nota, :comentario, :data, :img_user)");
-        $stmt->bindValue(':id', null, PDO::PARAM_NULL);
-        $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->bindValue(':nota', $nota, PDO::PARAM_INT);
+        $stmt = $pdo->prepare("INSERT INTO reviews (user_id, nota, comentario, data, img_user) VALUES (:user_id, :nota, :comentario, :data, :img_user)");
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->bindValue(':nota', $nota);
         $stmt->bindValue(':comentario', $comentario);
         $stmt->bindValue(':data', $data);
         $stmt->bindValue(':img_user', $img_user);
@@ -37,22 +36,9 @@ if (isset($_POST['salvar_edicao'])) {
     $nota = (int) ($_POST['nova_nota'] ?? 0);
     $comentario = trim($_POST['novo_comentario'] ?? '');
 
-    if (
-        $review_id > 0 &&
-        $nota >= 1 &&
-        $nota <= 5 &&
-        !empty($comentario)
-    ) {
+    if ($review_id > 0 && $nota >= 1 && $nota <= 5 && !empty($comentario)) {
 
-        $update = $pdo->prepare("
-            UPDATE reviews
-            SET
-                nota = :nota,
-                comentario = :comentario
-            WHERE
-                id = :id
-                AND user_id = :user_id
-        ");
+        $update = $pdo->prepare("UPDATE reviews SET nota = :nota, comentario = :comentario WHERE id = :id AND user_id = :user_id");
 
         $update->bindValue(':nota', $nota, PDO::PARAM_INT);
         $update->bindValue(':comentario', $comentario);
@@ -66,37 +52,19 @@ if (isset($_POST['salvar_edicao'])) {
     exit();
 }
 
-if (isset($_GET['excluir']) && is_numeric($_GET['excluir'])) {
+if (isset($_GET['excluir'])) {
 
-    $del = $pdo->prepare("
-        DELETE FROM reviews
-        WHERE id = :id
-        AND user_id = :uid
-    ");
+    $del = $pdo->prepare("DELETE FROM reviews WHERE id = :id AND user_id = :uid");
 
-    $del->bindValue(':id', (int)$_GET['excluir'], PDO::PARAM_INT);
-    $del->bindValue(':uid', $_SESSION['user_id'], PDO::PARAM_INT);
+    $del->bindValue(':id', $_GET['excluir']);
+    $del->bindValue(':uid', $_SESSION['user_id']);
     $del->execute();
 
     header('Location: /public/usuario/avaliacoes/avaliacoes.php');
     exit();
 }
 
-$stmt = $pdo->query("
-    SELECT
-        r.id AS review_id,
-        r.user_id,
-        r.nota,
-        r.comentario,
-        r.data,
-        r.img_user,
-        u.nome AS user_nome,
-        u.img_user AS user_img
-    FROM reviews r
-    INNER JOIN users u
-        ON r.user_id = u.id
-    ORDER BY r.id DESC
-");
+$stmt = $pdo->query("SELECT r.id AS review_id, r.user_id, r.nota, r.comentario, r.data, r.img_user, u.nome AS user_nome, u.img_user AS user_img FROM reviews r INNER JOIN users u ON r.user_id = u.id ORDER BY r.id DESC");
 
 $avaliacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

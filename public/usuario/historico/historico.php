@@ -73,15 +73,7 @@ $img_user = !empty($user['img_user']) ? $user['img_user'] : 'semfoto.jpg';
                                 <td><?= $pedido['pedido'] ?></td>
                                 <td>R$ <?= number_format($pedido['preco'], 2, ',', '.') ?></td>
                                 <td>
-                                    <?php
-                                    $s = strtolower($pedido['status']);
-                                    $cls = match (true) {
-                                        str_contains($s, 'entregue') => 'historico-status-entregue',
-                                        str_contains($s, 'cancelado') => 'historico-status-cancelado',
-                                        default => 'historico-status-pendente'
-                                    };
-                                    ?>
-                                    <span class="historico-status <?= $cls ?>">
+                                    <span class="historico-status">
                                         <?= ucfirst($pedido['status']) ?>
                                     </span>
                                 </td>

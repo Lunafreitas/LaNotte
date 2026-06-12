@@ -26,14 +26,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $img_padrao = 'semfoto.jpg';
 
-            $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha, nivel, img_user) VALUES (?, ?, ?, 0, ?)");
+            // $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha, nivel, img_user) VALUES (?, ?, ?, 0, ?)");
+            $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha, img_user) VALUES :nome, :email, :senha, :img_padrao");
+            $stmt->bindValue(':nome', $nome);
+            $stmt->bindValue(':email', $email);
+            $stmt->bindValue(':senha', $senhaHash);
+            $stmt->bindValue(':img_padrao', $img_padrao);
+            $stmt->execute();
 
-            $stmt->execute([
-                $nome,
-                $email,
-                $senhaHash,
-                $img_padrao
-            ]);
+            // $stmt->execute([
+            //     $nome,
+            //     $email,
+            //     $senhaHash,
+            //     $img_padrao
+            // ]);
             header('Location: login.php');
             exit();
         }
