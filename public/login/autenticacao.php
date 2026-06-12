@@ -3,7 +3,7 @@ session_start();
 
 // Verifica se a pessoa está loogada
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../../login/login.php");
     exit();
 } 
 

@@ -138,7 +138,7 @@
 
         <span class="sidebar-grupo">Visão Geral</span>
 
-        <a href="/public/admin/dashboard_admin.php" class="sidebar-link">
+        <a href="/public/admin/home/dashboard_admin.php" class="sidebar-link">
             <i class="fa-solid fa-chart-pie"></i> Inicio
         </a>
 

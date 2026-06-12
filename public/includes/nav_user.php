@@ -138,7 +138,7 @@
 
         <span class="sidebar-grupo">Visão Geral</span>
 
-        <a href="/public/usuario/dashboard_user.php" class="sidebar-link">
+        <a href="/public/usuario/home/dashboard_user.php" class="sidebar-link">
             <i class="fa-solid fa-house"></i> Inicio
         </a>
 

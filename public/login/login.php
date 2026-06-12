@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_nivel'] = $user['nivel'];
 
             if ($user['nivel'] == 1) {
-                header("Location: ../admin/dashboard_admin.php");
+                header("Location: ../admin/home/dashboard_admin.php");
             } else {
-                header("Location: ../usuario/dashboard_user.php");
+                header("Location: ../usuario/home/dashboard_user.php");
             }
             exit();
         } else {

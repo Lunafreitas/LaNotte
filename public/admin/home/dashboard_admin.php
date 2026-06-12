@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/conn.php';
-require_once '../login/autenticacao.php';
+require_once '../../../config/conn.php';
+require_once '../../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -25,7 +25,7 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="admin">
-<?php include '../includes/nav_admin.php'; ?>
+<?php include '../../includes/nav_admin.php'; ?>
 
 <div class="main">
     <div class="page-header">

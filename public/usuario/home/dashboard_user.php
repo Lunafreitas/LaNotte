@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/conn.php';
-require_once '../login/autenticacao.php';
+require_once '../../../config/conn.php';
+require_once '../../login/autenticacao.php';
 
 verificarUser();
 ?>
@@ -18,7 +18,7 @@ verificarUser();
 </head>
 <body class="user">
 
-<?php include '../includes/nav_user.php'; ?>
+<?php include '../../includes/nav_user.php'; ?>
 
 <div class="dash-user-page">
 
@@ -34,7 +34,7 @@ verificarUser();
                 Acesse o cardápio, acompanhe seus pedidos e aproveite os benefícios exclusivos da La Notte.
             </p>
         </div>
-        <a href="../login/logout.php" class="dash-hero-sair">
+        <a href="../../login/logout.php" class="dash-hero-sair">
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>
@@ -42,49 +42,49 @@ verificarUser();
     <!-- ── Grid de acesso rápido ── -->
     <div class="dash-grid">
 
-        <a href="cardapio/cardapio.php" class="dash-card" data-n="01">
+        <a href="../cardapio/cardapio.php" class="dash-card" data-n="01">
             <i class="fa-solid fa-utensils dash-card-icon"></i>
             <div class="dash-card-titulo">Cardápio</div>
             <p class="dash-card-desc">Explore todos os pratos, pizzas e sobremesas da La Notte.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="carrinho/carrinho.php" class="dash-card" data-n="02">
+        <a href="../carrinho/carrinho.php" class="dash-card" data-n="02">
             <i class="fa-solid fa-bag-shopping dash-card-icon"></i>
             <div class="dash-card-titulo">Carrinho</div>
             <p class="dash-card-desc">Veja os itens que você adicionou e finalize seu pedido.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="historico/historico.php" class="dash-card" data-n="03">
+        <a href="../historico/historico.php" class="dash-card" data-n="03">
             <i class="fa-solid fa-receipt dash-card-icon"></i>
             <div class="dash-card-titulo">Meus Pedidos</div>
             <p class="dash-card-desc">Acompanhe o histórico e status dos seus pedidos anteriores.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="perfil/perfilU.php" class="dash-card" data-n="04">
+        <a href="../perfil/perfilU.php" class="dash-card" data-n="04">
             <i class="fa-solid fa-user dash-card-icon"></i>
             <div class="dash-card-titulo">Meu Perfil</div>
             <p class="dash-card-desc">Edite seus dados, foto de perfil e informações da conta.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="avaliacoes/avaliacoes.php" class="dash-card" data-n="05">
+        <a href="../avaliacoes/avaliacoes.php" class="dash-card" data-n="05">
             <i class="fa-solid fa-star dash-card-icon"></i>
             <div class="dash-card-titulo">Avaliações</div>
             <p class="dash-card-desc">Leia o que outros clientes disseram e deixe a sua opinião.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="cardapio/cardapio.php" class="dash-card" data-n="06">
+        <a href="../cardapio/cardapio.php" class="dash-card" data-n="06">
             <i class="fa-solid fa-heart dash-card-icon"></i>
             <div class="dash-card-titulo">Favoritos</div>
             <p class="dash-card-desc">Acesse rapidamente os pratos que você mais gosta.</p>
             <i class="fa-solid fa-arrow-right dash-card-seta"></i>
         </a>
 
-        <a href="../../index.php" class="dash-card" data-n="07">
+        <a href="../../../index.php" class="dash-card" data-n="07">
             <i class="fa-solid fa-globe dash-card-icon"></i>
             <div class="dash-card-titulo">Ver Site</div>
             <p class="dash-card-desc">Volte à página inicial da La Notte.</p>
