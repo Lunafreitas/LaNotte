@@ -156,7 +156,7 @@
             <i class="fa-solid fa-receipt"></i> Pedidos
         </a>
 
-        <a href="/public/admin/usuarios.php" class="sidebar-link">
+        <a href="/public/admin/home/usuarios.php" class="sidebar-link">
             <i class="fa-solid fa-users"></i> Usuários
         </a>
 

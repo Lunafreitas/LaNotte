@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/conn.php';
-require_once '../login/autenticacao.php';
+require_once '../../../config/conn.php';
+require_once '../../login/autenticacao.php';
 
 verificarAdmin();
 
@@ -23,7 +23,7 @@ $total = count($users);
 </head>
 
 <body class="admin">
-    <?php include '../includes/nav_admin.php'; ?>
+    <?php include '../../includes/nav_admin.php'; ?>
 
     <div class="main">
 

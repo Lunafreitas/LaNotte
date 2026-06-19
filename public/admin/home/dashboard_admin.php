@@ -81,7 +81,7 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-tags"></i></div><div><div class="acao-titulo">Categorias</div><div class="acao-desc">Organizar seções</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
-            <a href="/public/admin/usuarios.php"                class="acao-item">
+            <a href="/public/admin//home/usuarios.php"                class="acao-item">
                 <div class="acao-esq"><div class="acao-icone"><i class="fa-solid fa-users"></i></div><div><div class="acao-titulo">Usuários</div><div class="acao-desc">Ver contas</div></div></div>
                 <i class="fa-solid fa-chevron-right acao-seta"></i>
             </a>
@@ -94,7 +94,7 @@ $ultimos = $pdo->query("SELECT id, nome, email, img_user FROM users WHERE nivel 
         <div class="tabela-wrap">
             <div class="tabela-topo">
                 <span class="tabela-label">Últimos Usuários</span>
-                <a href="/public/admin/usuarios.php" class="add" style="padding:6px 14px;font-size:8px;background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
+                <a href="/public/admin//home/usuarios.php" class="add" style="padding:6px 14px;font-size:8px;background:transparent;color:var(--amarelo);border-color:rgba(248,164,27,.3);">
                     Ver todos <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
