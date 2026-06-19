@@ -47,7 +47,7 @@ $total_avaliacoes = count($avaliacoes);
             </div>
         </div>
 
-        <div class="tabela-topo" style="border:2px solid rgba(248,164,27,.16);border-bottom:0;">
+        <div class="tabela-topo">
             <span class="tabela-label">Todas as Avaliações</span>
             <span class="tabela-count"><?= $total_avaliacoes ?> avaliação(es)</span>
         </div>

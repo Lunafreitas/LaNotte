@@ -4,7 +4,7 @@ require_once '../../login/autenticacao.php';
 
 verificarAdmin();
 
-$stmt = $pdo->query("SELECT id, nome, email, nivel, img_user FROM users WHERE nivel = 0 ORDER BY id DESC");
+$stmt = $pdo->query("SELECT * FROM users WHERE nivel = 0 ORDER BY id DESC");
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $total = count($users);
 ?>
@@ -34,16 +34,16 @@ $total = count($users);
             </div>
         </div>
 
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:22px;">
+        <div class="input-pai">
             <input
                 type="text"
                 id="busca"
                 placeholder="Buscar por nome ou email..."
                 oninput="filtrar(this.value)"
-                style="padding:10px 14px;background:rgba(255,255,255,.05);border:2px solid rgba(248,164,27,.2);color:var(--creme);font-family:'Roboto',sans-serif;font-size:12px;outline:none;width:300px;transition:border-color .2s;"
+                class="input-user"
                 onfocus="this.style.borderColor='var(--amarelo)'"
                 onblur="this.style.borderColor='rgba(248,164,27,.2)'">
-            <span id="count-txt" style="font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);">
+            <span id="count-txt" class="txt-input-user">
                 <?= $total ?> usuário(s)
             </span>
         </div>

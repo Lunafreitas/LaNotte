@@ -3291,3 +3291,31 @@ body.admin .btn-form-cancelar:hover {
   opacity: 1;
   visibility: visible;
 }
+
+.input-user {
+  padding:10px 14px;
+  background:rgba(255,255,255,.05);
+  border:2px solid rgba(248,164,27,.2);
+  color:var(--creme);
+  font-family:'Roboto',sans-serif;
+  font-size:12px;
+  outline:none;
+  width:300px;
+  transition:border-color .2s;
+}
+
+.txt-input-user {
+  font-family:'Roboto',sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.25);
+}
+
+.input-pai {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:22px;
+}
