@@ -16,9 +16,9 @@ if (isset($_GET['id'])) {
     $dadosProduto = $produto->fetch(PDO::FETCH_ASSOC);
 
     $preco = $dadosProduto['preco'];
-    $check = $pdo->prepare("SELECT id FROM carrinho WHERE user_id = ? AND produto_id = ?");
-    $check->execute([$user_id, $produto_id]);
-    $item = $check->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT id FROM carrinho WHERE user_id = ? AND produto_id = ?");
+    $stmt->execute([$user_id, $produto_id]);
+    $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($item) {
         // Soma quantidade
